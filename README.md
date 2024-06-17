@@ -1,2 +1,3 @@
 # Python_Projetos
- Repositórios focados em projetos secundários relacionados à iteratividade de interfaces e softwares.
+ Repositório focado em projetos secundários relacionados à interatividade de interfaces e softwares.
+ 
