@@ -8,4 +8,3 @@ configure_all(app)
 
 # execução
 app.run(debug=True) # modo desenvolvedor
-
