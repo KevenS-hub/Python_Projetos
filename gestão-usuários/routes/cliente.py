@@ -59,11 +59,13 @@ def form_edit_cliente(cliente_id):
 @cliente_route.route('/<int:cliente_id>/update', methods=['PUT'])
 def atualizar_cliente(cliente_id):
     """ atualizar informações do cliente """
-    cliente_editado = None
     # obter dados do formulario de edição
     data = request.json
 
     cliente_editado = Cliente.get_by_id(cliente_id)
+    cliente_editado.nome = data['nome']
+    cliente_editado.email = data['email']
+    cliente_editado.save()
 
     # editar usuario
     return render_template('item_cliente.html', cliente=cliente_editado)
@@ -73,8 +75,7 @@ def atualizar_cliente(cliente_id):
 
 @cliente_route.route('/<int:cliente_id>/delete', methods=['DELETE'])
 def deletar_cliente(cliente_id):
-    global CLIENTES
-    CLIENTES = [ c for c in CLIENTES if c['id'] != cliente_id]
-
+    cliente = Cliente.get_by_id(cliente_id)
+    cliente.delete_instance()
     return {'delete': 'ok'}
     
