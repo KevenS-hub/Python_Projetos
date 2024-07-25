@@ -1,5 +1,4 @@
 from flask import Blueprint, render_template, request
-from database.cliente import CLIENTES
 from database.models.cliente import Cliente
 
 cliente_route = Blueprint('cliente', __name__)
